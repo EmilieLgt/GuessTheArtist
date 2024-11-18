@@ -481,39 +481,81 @@ export class SearchBarComponent {
   // ce qui est écrit dans l'input
   guess: string = '';
   // pour afficher la suite si input rempli
-
   inputFilled: boolean = false;
+
   // la liste des artistes dont la première lettre correspond à ce qui est écrit dans l'input
   artistsListDisplay: Artist[] = [];
   // fonction quand l'utilisateur tape une lettre dans l'input, recherche les artistes qui correpsondent à la première lettre
   displayArtistList() {
     console.log(this.guess);
     // on prend la première lettre du guess, mise en majuscule
-    const firstLetter = this.guess.charAt(0).toUpperCase();
+    const firstLetters = this.guess.toUpperCase();
+
     // on filtre les artistes dont le nom commence par cette lettre
-    this.artistsListDisplay = this.musicArtists.filter(
-      (artist) => artist.name.charAt(0).toUpperCase() === firstLetter
-    );
+    if (firstLetters) {
+      this.artistsListDisplay = this.musicArtists.filter((artist) =>
+        artist.name.toUpperCase().startsWith(firstLetters)
+      );
+    }
+
     this.inputFilled = true;
   }
 
-  // l'artiste sélectionné dans la liste proposée à l'utilisateur une fois qu'il a écrit une lettre dans l'input
+  // l'artiste sélectionné dans la liste proposée à l'utilisateur
   selectedArtist: Artist[] = [];
   // si un artiste est sélectionné, pour afficher la suite
   buttonClicked: boolean = false;
-  // verifier l'artiste correspond à l'artiste sélectionné
+  // si l'artiste à deviner correspond à l'artiste sélectionné
   goodAnswer!: boolean;
 
-  // quand l'utilisateur clique sur l'artiste qu'il pense, le retrouver dans la liste des artiste
-  selectArtist(nameSelected: string) {
-    this.selectedArtist = this.musicArtists.filter(
-      (artist) => artist.name === nameSelected
-    );
+  // vérifier chaque propriété de l'artiste
+  goodCountry!: boolean;
+  goodDebut!: boolean;
+  goodGenre!: boolean;
+  goodNumber!: boolean;
 
+  // gérer affichage des dates et membres (indices plus ou moins)
+  debutBefore!: boolean;
+  numberInferior!: boolean;
+  // quand l'utilisateur clique sur l'artiste sélectionné, le retrouver dans le tableau des artistes et vérifier si les deux correspondent
+  selectArtist(artistSelected: Artist) {
+    this.selectedArtist = this.musicArtists.filter(
+      (artist) => artist.name === artistSelected.name
+    );
+    // verifie si nom correspond (si oui réponse correcte)
     this.selectedArtist[0]?.name === this.artistToFind?.name
       ? (this.goodAnswer = true)
       : (this.goodAnswer = false);
 
+    // Vérifie si le pays correspond (pour affichage ensuite)
+    this.selectedArtist[0]?.country === this.artistToFind?.country
+      ? (this.goodCountry = true)
+      : (this.goodCountry = false);
+
+    // Vérifie si le début correspond
+    this.selectedArtist[0]?.debut === this.artistToFind?.debut
+      ? (this.goodDebut = true)
+      : (this.goodDebut = false);
+
+    this.selectedArtist[0]?.debut! < this.artistToFind?.debut
+      ? (this.debutBefore = true)
+      : (this.debutBefore = false);
+    console.log(this.debutBefore);
+    // Vérifie si le genre correspond
+    this.selectedArtist[0]?.genre === this.artistToFind?.genre
+      ? (this.goodGenre = true)
+      : (this.goodGenre = false);
+
+    // Vérifie si le nombre correspond
+    this.selectedArtist[0]?.number === this.artistToFind?.number
+      ? (this.goodNumber = true)
+      : (this.goodNumber = false);
+
+    this.selectedArtist[0]?.number! < this.artistToFind?.number
+      ? (this.numberInferior = true)
+      : (this.numberInferior = false);
+
+    // conditionne apparititon composant réponse
     this.buttonClicked = true;
   }
 }

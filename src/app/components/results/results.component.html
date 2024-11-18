@@ -7,25 +7,59 @@
 </div>
 } @for(artist of newSelectedArtist ; track artist.id) {
 <div class="one-line-guess-container">
-  <div class="one-category-answer">
+  <div
+    [ngClass]="{
+      'one-category-good-answer': goodAnswer,
+      'one-category-answer': !goodAnswer
+    }"
+  >
     <p>Name</p>
     <span class="bold"> {{ artist.name }}</span>
   </div>
-  <div class="one-category-answer">
-    <p>Debut</p>
+  <div
+    [ngClass]="{
+      'one-category-good-answer': goodDebut,
+      'one-category-answer': !goodDebut
+    }"
+  >
+    <p>
+      Debut @if(debutBefore) {
+      <span class="bold">↑</span>
+      } @if(!debutBefore && !goodDebut) {
+      <span class="bold">↓ </span>
+      }
+    </p>
     <span class="bold">{{ artist.debut }}</span>
   </div>
-  <div class="one-category-answer">
+  <div
+    [ngClass]="{
+      'one-category-good-answer': goodGenre,
+      'one-category-answer': !goodGenre
+    }"
+  >
     <p>Genre</p>
     <span class="bold">{{ artist.genre }}</span>
   </div>
 </div>
 <div class="one-line-guess-container">
-  <div class="one-category-answer">
-    <p>Members</p>
+  <div
+    [ngClass]="{
+      'one-category-good-answer': goodNumber,
+      'one-category-answer': !goodNumber
+    }"
+  >
+    <p>
+      Members @if(numberInferior) { <span class="bold">↑</span> }
+      @if(!numberInferior && !goodNumber){ <span class="bold">↓ </span>}
+    </p>
     <span class="bold">{{ artist.number }}</span>
   </div>
-  <div class="one-category-answer">
+  <div
+    [ngClass]="{
+      'one-category-good-answer': goodCountry,
+      'one-category-answer': !goodCountry
+    }"
+  >
     <p>Country</p>
     <span class="bold">{{ artist.country }}</span>
   </div>
