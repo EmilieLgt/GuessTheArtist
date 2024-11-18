@@ -1,0 +1,33 @@
+<h3>3. Your guess</h3>
+@if(newSelectedArtist[0].name && goodAnswer) {
+<div class="answer-results-container" id="good-answer">GOOD ANSWER !</div>
+} @if(!goodAnswer) {
+<div class="answer-results-container" id="bad-answer">
+  Wrong answer, try again !
+</div>
+} @for(artist of newSelectedArtist ; track artist.id) {
+<div class="one-line-guess-container">
+  <div class="one-category-answer">
+    <p>Name</p>
+    <span class="bold"> {{ artist.name }}</span>
+  </div>
+  <div class="one-category-answer">
+    <p>Debut</p>
+    <span class="bold">{{ artist.debut }}</span>
+  </div>
+  <div class="one-category-answer">
+    <p>Genre</p>
+    <span class="bold">{{ artist.genre }}</span>
+  </div>
+</div>
+<div class="one-line-guess-container">
+  <div class="one-category-answer">
+    <p>Members</p>
+    <span class="bold">{{ artist.number }}</span>
+  </div>
+  <div class="one-category-answer">
+    <p>Country</p>
+    <span class="bold">{{ artist.country }}</span>
+  </div>
+</div>
+}

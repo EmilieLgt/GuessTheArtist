@@ -1,0 +1,33 @@
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  input {
+    border-radius: 15px;
+    padding: 0.3em;
+  }
+}
+.select-artist-container {
+  display: flex;
+  margin-top: 1em;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .buttons-container-guess {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  button {
+    background-color: blue;
+    color: white;
+    border-radius: 15px;
+    padding: 0.5em;
+    margin: 0.3em;
+  }
+}
