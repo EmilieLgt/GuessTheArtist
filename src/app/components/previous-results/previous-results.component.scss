@@ -1,0 +1,21 @@
+.one-previous-guess-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 1em;
+}
+
+.one-category-good-answer {
+  background-color: greenyellow;
+  padding: 0.5em;
+  color: black;
+}
+
+.one-category-answer {
+  background-color: red;
+  padding: 0.5em;
+}
+
+.name-previous {
+  padding: 0.5em;
+}
