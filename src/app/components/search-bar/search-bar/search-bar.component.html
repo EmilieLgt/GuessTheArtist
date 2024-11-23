@@ -1,10 +1,10 @@
 <div class="search-container">
-  <h3>1. Enter the first letter of your guess</h3>
+  <h3>Enter the first letter of your guess</h3>
   <input (input)="displayArtistList()" [(ngModel)]="guess" />
 </div>
 @if (inputFilled) {
 <div class="select-artist-container">
-  <h3>2. Select the artist</h3>
+  <h3>Select the artist</h3>
   <div class="buttons-container-guess">
     @for (artist of artistsListDisplay ; track artist.id) {
     <button (click)="selectArtist(artist)">{{ artist.name }}</button>
@@ -22,5 +22,9 @@
   [goodNumber]="goodNumber"
   [debutBefore]="debutBefore"
   [numberInferior]="numberInferior"
-></app-results
+></app-results>
+<app-previous-results
+  [previousArtists]="previousArtists"
+  [artistToFind]="artistToFind"
+></app-previous-results
 >}

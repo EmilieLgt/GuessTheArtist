@@ -1,4 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+$black: rgb(35, 31, 31);
+$white: rgb(249, 236, 236);
+$darkcolor: rgb(70, 36, 76);
+$firstcolor: rgb(113, 43, 117);
+$secondcolor: rgb(199, 75, 80);
+$thirdcolor: rgb(212, 155, 84);
+
 * {
   margin: 0;
   padding: 0;
@@ -7,8 +14,8 @@
 }
 
 body {
-  background-color: black;
-  color: white;
+  background-color: $black;
+  color: $white;
 }
 
 h3 {
