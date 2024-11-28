@@ -1,14 +1,18 @@
-<h3>Previous</h3>
-@for (artist of previousArtists; track $index) {
-<div class="one-previous-guess-container">
-  <div class="name-previous">
-    <span class="bold"> {{ artist[0].name }}</span>
-  </div>
-  @if (artist[0].debut === this.artistToFind.debut) {
-  <div class="one-category-good-answer">{{ artist[0].debut }}</div>
-  } @else {
-  <div class="one-category-answer">
-    <span class="bold">
+<div class="previous-results-container">
+  <h3>Previous</h3>
+
+  @for (artist of previousArtists; track $index) {
+
+  <div class="one-previous-guess-container">
+    <div class="name-previous">
+      <span class="bold"> {{ artist[0].name }}</span>
+    </div>
+    @if (artist[0].debut === this.artistToFind.debut) {
+    <div class="one-category-good-answer" id="artist-debut">
+      {{ artist[0].debut }}
+    </div>
+    } @else {
+    <div class="one-category-answer" id="artist-debut">
       {{ artist[0].debut }}
       @if(artist[0].debut != this.artistToFind.debut && artist[0].debut <
       this.artistToFind.debut) {
@@ -16,32 +20,37 @@
       } @if(artist[0].debut != this.artistToFind.debut && artist[0].debut
       >this.artistToFind.debut ) {
       <span class="bold">↓ </span>
-      }</span
-    >
-  </div>
-  } @if (artist[0].genre === this.artistToFind.genre) {
-  <div class="one-category-good-answer">{{ artist[0].genre }}</div>
-  } @else {
-  <div class="one-category-answer">
-    <span class="bold">{{ artist[0].genre }}</span>
-  </div>
-  } @if (artist[0].number === this.artistToFind.number) {
-  <div class="one-category-good-answer">{{ artist[0].number }}</div>
-  } @else {
-  <div class="one-category-answer">
-    <span class="bold"
-      >{{ artist[0].number }} @if(artist[0].number != this.artistToFind.number
-      && artist[0].number < this.artistToFind.number) { ↑ } @if(artist[0].number
-      != this.artistToFind.number && artist[0].number > this.artistToFind.number
-      ) { ↓ }
-    </span>
-  </div>
-  } @if (artist[0].country === this.artistToFind.country) {
-  <div class="one-category-good-answer">{{ artist[0].country }}</div>
-  } @else {
-  <div class="one-category-answer">
-    <span class="bold">{{ artist[0].country }}</span>
+      }
+    </div>
+    } @if (artist[0].genre === this.artistToFind.genre) {
+    <div class="one-category-good-answer" id="artist-genre">
+      {{ artist[0].genre }}
+    </div>
+    } @else {
+    <div class="one-category-answer" id="artist-genre">
+      {{ artist[0].genre }}
+    </div>
+    } @if (artist[0].number === this.artistToFind.number) {
+    <div class="one-category-good-answer" id="artist-number">
+      {{ artist[0].number }}
+    </div>
+    } @else {
+    <div class="one-category-answer" id="artist-number">
+      {{ artist[0].number }} @if(artist[0].number != this.artistToFind.number &&
+      artist[0].number < this.artistToFind.number) {
+      <span class="bold"> ↑ </span>} @if(artist[0].number !=
+      this.artistToFind.number && artist[0].number > this.artistToFind.number )
+      {<span class="bold"> ↓ </span>}
+    </div>
+    } @if (artist[0].country === this.artistToFind.country) {
+    <div class="one-category-good-answer" id="artist-country">
+      {{ artist[0].country }}
+    </div>
+    } @else {
+    <div class="one-category-answer" id="artist-country">
+      {{ artist[0].country }}
+    </div>
+    }
   </div>
   }
 </div>
-}

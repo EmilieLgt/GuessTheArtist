@@ -1306,11 +1306,13 @@ export class SearchBarComponent {
   ];
 
   artistToFind!: Artist;
+  triesCounter!: number;
   // donner un artiste au hasard au chargement de la page
   ngOnInit() {
     const randomIndex = Math.floor(Math.random() * this.musicArtists.length);
     this.artistToFind = this.musicArtists[randomIndex];
     console.log(this.artistToFind);
+    this.triesCounter = 0;
     // si j'arrive à utiliser l'api spotify un jour
     //  private apiService: ApiCallService = inject(ApiCallService);
     // this.apiService.getAccessToken();
@@ -1361,6 +1363,7 @@ export class SearchBarComponent {
 
   // quand l'utilisateur clique sur l'artiste sélectionné, le retrouver dans le tableau des artistes et vérifier si les deux correspondent
   selectArtist(artistSelected: Artist) {
+    this.triesCounter++;
     this.selectedArtist = this.musicArtists.filter(
       (artist) => artist.name === artistSelected.name
     );
@@ -1406,5 +1409,26 @@ export class SearchBarComponent {
 
     // cacher la liste de bouttons
     this.inputFilled = false;
+  }
+
+  resetGame() {
+    const randomIndex = Math.floor(Math.random() * this.musicArtists.length);
+    this.artistToFind = this.musicArtists[randomIndex];
+    console.log(this.artistToFind);
+    this.inputFilled = false;
+    this.selectedArtist = [];
+    this.artistsListDisplay = [];
+    this.guess = '';
+    this.buttonClicked = false;
+    this.previousArtists = [];
+    // Réinitialisation des autres variables si nécessaire
+    this.goodAnswer = false;
+    this.goodCountry = false;
+    this.goodDebut = false;
+    this.goodGenre = false;
+    this.goodNumber = false;
+    this.debutBefore = false;
+    this.numberInferior = false;
+    this.triesCounter = 0;
   }
 }

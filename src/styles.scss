@@ -1,27 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
-$black: rgb(35, 31, 31);
-$white: rgb(249, 236, 236);
-$darkcolor: rgb(70, 36, 76);
-$firstcolor: rgb(113, 43, 117);
-$secondcolor: rgb(199, 75, 80);
-$thirdcolor: rgb(212, 155, 84);
+$black: rgb(58, 48, 48);
+$white: rgb(252, 247, 242);
+$darkcolor: rgb(49, 36, 76);
+$firstcolor: rgb(94, 96, 143);
+$secondcolor: rgb(203, 227, 240);
+$thirdcolor: rgb(1, 7, 0);
+$right: rgb(119, 192, 119);
+$wrong: rgb(198, 110, 110);
 
 * {
   margin: 0;
   padding: 0;
   list-style: none;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Parkinsans";
 }
 
 body {
   background-color: $black;
-  color: $white;
+  color: $black;
 }
 
 h3 {
   font-size: 1.2em;
   text-align: center;
-  margin-top: 1em;
   margin-bottom: 1em;
 }
 

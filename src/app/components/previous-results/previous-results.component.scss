@@ -1,21 +1,58 @@
+@import "./../../../styles.scss";
+
+.previous-results-container {
+  padding: 1em;
+  margin-top: 1em;
+  color: $white;
+}
+
 .one-previous-guess-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  gap: 1em;
-}
-
-.one-category-good-answer {
-  background-color: greenyellow;
-  padding: 0.5em;
-  color: black;
-}
-
-.one-category-answer {
-  background-color: red;
-  padding: 0.5em;
+  display: grid;
+  grid-template-columns: 1fr, 1fr, 1fr, 2fr;
+  grid-template-rows: 1fr, 2fr;
+  grid-column-gap: 5px;
+  grid-row-gap: 0px;
+  text-align: center;
+  text-indent: unset;
+  margin: 0.5em auto;
+  width: 70%;
+  padding: 0.2em;
+  border-radius: 5px;
 }
 
 .name-previous {
-  padding: 0.5em;
+  grid-area: 1 / 1 / 2 / 5;
+  text-align: left;
+  color: $white;
+}
+
+#artist-debut {
+  grid-area: 2 / 1 / 3 / 2;
+}
+#artist-genre {
+  grid-area: 2 / 2 / 3 / 3;
+}
+#artist-number {
+  grid-area: 2 / 3 / 3 / 4;
+}
+#artist-country {
+  grid-area: 2 / 4 / 3 / 5;
+}
+.one-category-good-answer {
+  background-color: $right;
+  color: black;
+  padding: 0.4em;
+  box-shadow: 0.6px 1.3px 1.3px hsl(0deg 0% 0% / 0.48);
+}
+
+.one-category-answer {
+  background-color: $wrong;
+  padding: 0.4em;
+  box-shadow: 0.6px 1.3px 1.3px hsl(0deg 0% 0% / 0.48);
+}
+
+@media screen and (max-width: 992px) {
+  .one-previous-guess-container {
+    width: 100%;
+  }
 }

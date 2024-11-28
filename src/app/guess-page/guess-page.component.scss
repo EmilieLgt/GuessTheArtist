@@ -2,18 +2,26 @@
 
 h1 {
   text-align: center;
-  background-color: $darkcolor;
-  padding: 0.6em;
+  color: $white;
+  margin: 1em auto 0 auto;
+  border-radius: 50px;
 }
-div {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+p {
+  text-align: center;
+  color: $secondcolor;
+  margin-bottom: 1em;
 }
 
+div {
+  width: 50%;
+  margin: auto;
+}
 @media screen and (max-width: 992px) {
   h1 {
     width: 90%;
+  }
+  div {
+    width: 90%;
+    margin: auto;
   }
 }
