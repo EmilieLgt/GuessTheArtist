@@ -1,4 +1,4 @@
-@if(triesCounter < 2) {
+@if(triesCounter < 10) {
 <div class="search-container">
   <div>
     <h3>
@@ -18,7 +18,7 @@
 
   }
 </div>
-} @if(triesCounter === 2 ) {
+} @if(triesCounter === 10 ) {
 <div class="search-container" id="answer">
   The answer was <span class="bold">{{ artistToFind.name }}</span> ({{
     artistToFind.debut
@@ -28,7 +28,7 @@
   <button class="new-button" (click)="resetGame()">Try again</button>
 </div>
 
-} @if (buttonClicked && triesCounter < 3) {
+} @if (buttonClicked && triesCounter < 11) {
 <app-results
   [newSelectedArtist]="selectedArtist"
   [artistToFind]="artistToFind"
