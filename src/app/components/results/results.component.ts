@@ -19,6 +19,7 @@ export class ResultsComponent {
   @Input() goodDebut!: boolean;
   @Input() goodGenre!: boolean;
   @Input() goodNumber!: boolean;
+  @Input() goodGender!: boolean;
   @Input() numberInferior!: boolean;
   @Input() debutBefore!: boolean;
 }

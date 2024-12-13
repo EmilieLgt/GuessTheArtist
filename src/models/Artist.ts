@@ -1,8 +1,10 @@
 export interface Artist {
   id: number;
   name: string;
-  debut: number;
+  year: number;
   country: string;
   genre: string;
   number: number;
+  hint: string;
+  gender: string;
 }
