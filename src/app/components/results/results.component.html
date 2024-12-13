@@ -1,19 +1,13 @@
 <div class="your-guess-container">
+  @if(!goodAnswer) {
   <h3>Your guess</h3>
-
-  @if(newSelectedArtist[0].name && goodAnswer) {
-  <div class="answer-results-container" id="good-answer">GOOD ANSWER !</div>
+  } @if(newSelectedArtist[0].name && goodAnswer) {
+  <div class="answer-results-container" id="good-answer">
+    GOOD ANSWER !<img class="good-answer-gif" src="/giphy.gif" />
+  </div>
   } @for(artist of newSelectedArtist ; track artist.id) {
+  <p class="bold" id="artist-name">{{ artist.name }}</p>
   <div class="proprieties-container">
-    <div
-      [ngClass]="{
-        'one-category-good-answer': goodAnswer,
-        'one-category-answer': !goodAnswer
-      }"
-    >
-      <p>Name</p>
-      <span class="bold"> {{ artist.name }}</span>
-    </div>
     <div
       [ngClass]="{
         'one-category-good-answer': goodDebut,
@@ -27,7 +21,7 @@
         <span class="bold">↓ </span>
         }
       </p>
-      <span class="bold">{{ artist.debut }}</span>
+      <span class="bold">{{ artist.year }}</span>
     </div>
     <div
       [ngClass]="{
@@ -59,6 +53,15 @@
     >
       <p>Country</p>
       <span class="bold">{{ artist.country }}</span>
+    </div>
+    <div
+      [ngClass]="{
+        'one-category-good-answer': goodGender,
+        'one-category-answer': !goodGender
+      }"
+    >
+      <p>Gender</p>
+      <span class="bold">{{ artist.gender }}</span>
     </div>
   </div>
   }

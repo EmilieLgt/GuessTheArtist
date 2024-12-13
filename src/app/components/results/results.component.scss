@@ -1,7 +1,6 @@
 @import "./../../../styles.scss";
 
 .your-guess-container {
-  border-radius: 25px;
   padding: 1em;
   margin-top: 1em;
   h3 {
@@ -15,7 +14,16 @@
   justify-content: space-evenly;
   gap: 1em;
 }
-
+#artist-name {
+  color: $white;
+  padding: 0.5em;
+  font-size: 1.2em;
+  background-color: $darkcolor;
+  width: 50%;
+  margin: 1em auto;
+  text-align: center;
+  border-radius: 15px;
+}
 .one-line-guess-container {
   flex-wrap: wrap;
   margin-top: 1em;
@@ -43,8 +51,16 @@
 
 .answer-results-container {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #good-answer {
   color: $right;
+  margin-bottom: 1em;
+}
+.good-answer-gif {
+  width: 80px;
 }

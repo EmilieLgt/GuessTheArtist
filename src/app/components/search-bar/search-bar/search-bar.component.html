@@ -1,4 +1,8 @@
-@if(triesCounter < 10) {
+@if(goodAnswer){
+<div class="new-button-container">
+  <button class="new-button" (click)="resetGame()">New artist</button>
+</div>
+} @if(triesCounter < 10 && !goodAnswer) {
 <div class="search-container">
   <div>
     <h3>
@@ -16,18 +20,23 @@
     }
   </div>
 
-  }
+  } @if(triesCounter > 5 && triesCounter < 10){
+  <button (click)="showHint()" id="hint-button">Hint</button> @if(hintShowing) {
+  <div class="hint-container">
+    <img src="/music-svgrepo-com.svg" class="icon-music" />
+    <div>{{ artistToFind.hint }}</div>
+  </div>
+  } }
 </div>
-} @if(triesCounter === 10 ) {
+} @if(triesCounter === 10 && !goodAnswer ) {
 <div class="search-container" id="answer">
   The answer was <span class="bold">{{ artistToFind.name }}</span> ({{
-    artistToFind.debut
+    artistToFind.year
   }}
   | {{ artistToFind.genre }} | {{ artistToFind.number }} |
   {{ artistToFind.country }})
-  <button class="new-button" (click)="resetGame()">Try again</button>
+  <button id="new-button" (click)="resetGame()">Try again</button>
 </div>
-
 } @if (buttonClicked && triesCounter < 11) {
 <app-results
   [newSelectedArtist]="selectedArtist"
@@ -39,6 +48,7 @@
   [goodNumber]="goodNumber"
   [debutBefore]="debutBefore"
   [numberInferior]="numberInferior"
+  [goodGender]="goodGender"
 ></app-results>
 <app-previous-results
   [previousArtists]="previousArtists"

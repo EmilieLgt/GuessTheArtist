@@ -1,24 +1,23 @@
 <div class="previous-results-container">
   <h3>Previous</h3>
 
-  @for (artist of previousArtists; track $index) {
-
+  @for (artist of previousArtists.slice().reverse(); track $index) {
   <div class="one-previous-guess-container">
-    <div class="name-previous">
+    <p class="name-previous">
       <span class="bold"> {{ artist[0].name }}</span>
-    </div>
-    @if (artist[0].debut === this.artistToFind.debut) {
+    </p>
+    @if (artist[0].year === this.artistToFind.year) {
     <div class="one-category-good-answer" id="artist-debut">
-      {{ artist[0].debut }}
+      {{ artist[0].year }}
     </div>
     } @else {
     <div class="one-category-answer" id="artist-debut">
-      {{ artist[0].debut }}
-      @if(artist[0].debut != this.artistToFind.debut && artist[0].debut <
-      this.artistToFind.debut) {
+      {{ artist[0].year }}
+      @if(artist[0].year != this.artistToFind.year && artist[0].year <
+      this.artistToFind.year) {
       <span class="bold">↑</span>
-      } @if(artist[0].debut != this.artistToFind.debut && artist[0].debut
-      >this.artistToFind.debut ) {
+      } @if(artist[0].year != this.artistToFind.year && artist[0].year
+      >this.artistToFind.year ) {
       <span class="bold">↓ </span>
       }
     </div>
@@ -50,7 +49,16 @@
     <div class="one-category-answer" id="artist-country">
       {{ artist[0].country }}
     </div>
+    } @if (artist[0].gender === this.artistToFind.gender) {
+    <div class="one-category-good-answer" id="artist-gender">
+      {{ artist[0].gender }}
+    </div>
+    } @else {
+    <div class="one-category-answer" id="artist-gender">
+      {{ artist[0].gender }}
+    </div>
     }
   </div>
+
   }
 </div>

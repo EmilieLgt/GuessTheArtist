@@ -8,10 +8,9 @@
 
 .one-previous-guess-container {
   display: grid;
-  grid-template-columns: 1fr, 1fr, 1fr, 2fr;
+  grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 1fr, 2fr;
-  grid-column-gap: 5px;
-  grid-row-gap: 0px;
+  grid-row-gap: 5px;
   text-align: center;
   text-indent: unset;
   margin: 0.5em auto;
@@ -37,6 +36,10 @@
 }
 #artist-country {
   grid-area: 2 / 4 / 3 / 5;
+}
+
+#artist-gender {
+  grid-area: 2 / 5 / 3 / 6;
 }
 .one-category-good-answer {
   background-color: $right;
