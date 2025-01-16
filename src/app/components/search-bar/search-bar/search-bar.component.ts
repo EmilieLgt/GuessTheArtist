@@ -5407,7 +5407,7 @@ export class SearchBarComponent {
     this.guess = '';
     this.buttonClicked = false;
     this.previousArtists = [];
-    // Réinitialisation des autres variables si nécessaire
+    this.hintShowing = false;
     this.goodAnswer = false;
     this.goodCountry = false;
     this.goodDebut = false;

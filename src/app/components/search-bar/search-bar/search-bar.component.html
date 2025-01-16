@@ -1,6 +1,8 @@
 @if(goodAnswer){
 <div class="new-button-container">
-  <button class="new-button" (click)="resetGame()">New artist</button>
+  <button class="new-button" (click)="resetGame()">
+    <img src="/retry.svg" /> Play again
+  </button>
 </div>
 } @if(triesCounter < 10 && !goodAnswer) {
 <div class="search-container">
@@ -9,6 +11,18 @@
       Enter the first letter of your guess
       <span class="tries-counter">{{ triesCounter }}/10</span>
     </h3>
+    @if(triesCounter > 0 && triesCounter < 10){ @if (!hintShowing) {<button
+      (click)="showHint()"
+      id="hint-button"
+    >
+      Hint <img src="/help-logo.svg" class="icon-music" />
+    </button>
+    } @if(hintShowing) {
+    <div class="hint-container">
+      <img src="/logo-music-black.svg" class="icon-music" />
+      <div>{{ artistToFind.hint }}</div>
+    </div>
+    } }
     <input (input)="displayArtistList()" [(ngModel)]="guess" />
   </div>
 
@@ -20,13 +34,7 @@
     }
   </div>
 
-  } @if(triesCounter > 5 && triesCounter < 10){
-  <button (click)="showHint()" id="hint-button">Hint</button> @if(hintShowing) {
-  <div class="hint-container">
-    <img src="/music-svgrepo-com.svg" class="icon-music" />
-    <div>{{ artistToFind.hint }}</div>
-  </div>
-  } }
+  }
 </div>
 } @if(triesCounter === 10 && !goodAnswer ) {
 <div class="search-container" id="answer">
