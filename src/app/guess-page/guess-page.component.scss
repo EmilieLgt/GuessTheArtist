@@ -12,16 +12,29 @@ p {
   margin-bottom: 1em;
 }
 
-div {
+.header {
   width: 50%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1em;
+  img {
+    height: 90px;
+  }
+}
+
+.body {
+  width: 40%;
   margin: auto;
 }
 @media screen and (max-width: 992px) {
   h1 {
     width: 90%;
   }
-  div {
-    width: 90%;
+  .body,
+  .header {
+    width: 95%;
     margin: auto;
   }
 }

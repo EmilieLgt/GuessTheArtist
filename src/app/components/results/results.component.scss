@@ -2,16 +2,15 @@
 
 .your-guess-container {
   padding: 1em;
-  margin-top: 1em;
-  h3 {
-    color: $white;
-  }
+  background-color: $white;
+  border-radius: 0 0 10px 10px;
 }
 .proprieties-container {
   display: flex;
   flex-direction: row;
   align-items: space-evenly;
   justify-content: space-evenly;
+
   gap: 1em;
 }
 #artist-name {
@@ -63,4 +62,10 @@
 }
 .good-answer-gif {
   width: 80px;
+}
+
+@media screen and (max-width: 992px) {
+  .proprieties-container {
+    flex-wrap: wrap;
+  }
 }

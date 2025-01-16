@@ -1,12 +1,17 @@
 <div class="your-guess-container">
   @if(!goodAnswer) {
-  <h3>Your guess</h3>
+  <h3>
+    Your guess : @for(artist of newSelectedArtist ; track artist.id) {
+    <span class="bold">{{ artist.name }}</span>
+    }
+  </h3>
   } @if(newSelectedArtist[0].name && goodAnswer) {
   <div class="answer-results-container" id="good-answer">
-    GOOD ANSWER !<img class="good-answer-gif" src="/giphy.gif" />
+    @for(artist of newSelectedArtist ; track artist.id) {
+    <span class="bold">{{ artist.name }}</span>
+    } GOOD ANSWER !<img class="good-answer-gif" src="/giphy.gif" />
   </div>
   } @for(artist of newSelectedArtist ; track artist.id) {
-  <p class="bold" id="artist-name">{{ artist.name }}</p>
   <div class="proprieties-container">
     <div
       [ngClass]="{
