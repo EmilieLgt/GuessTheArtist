@@ -11,7 +11,7 @@
       Enter the first letter of your guess
       <span class="tries-counter">{{ triesCounter }}/10</span>
     </h3>
-    @if(triesCounter > 0 && triesCounter < 10){ @if (!hintShowing) {<button
+    @if(triesCounter > 5 && triesCounter < 10){ @if (!hintShowing) {<button
       (click)="showHint()"
       id="hint-button"
     >
